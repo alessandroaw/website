@@ -1,15 +1,17 @@
 import { motion } from "framer-motion";
-import { useState,useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 function DayComponent() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [time, setTime] = useState("");
-  const formatter = new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',hour12:true,hour:'numeric',minute:'numeric'})
+  const formatter = new Intl.DateTimeFormat("en-GB", {
+    hour12: true,
+    hour: "numeric",
+    minute: "numeric",
+  });
   useEffect(() => {
     const interval = setInterval(() => {
-      setTime(
-        formatter.format(new Date())
-      );
+      setTime(formatter.format(new Date()));
     }, 1000);
     return () => clearInterval(interval);
   }, []);
@@ -20,8 +22,12 @@ function DayComponent() {
         <div className="flex items-baseline space-x-1 md:space-x-2 opacity-85">
           <div className="rounded-full bg-white w-2 h-2 md:w-5 md:h-5"></div>
           <div className="flex flex-col">
-            <div className="text-white font-bold text-sm md:text-2xl xl:text-4xl">{time}</div>
-            <div className="text-white font-thin -mt-2 text-sm md:text-lg xl:text-2xl">in the uk</div>
+            <div className="text-white font-bold text-sm md:text-2xl xl:text-4xl">
+              {time}
+            </div>
+            <div className="text-white font-thin -mt-2 text-sm md:text-lg xl:text-2xl">
+              in Bali
+            </div>
           </div>
         </div>
       </div>

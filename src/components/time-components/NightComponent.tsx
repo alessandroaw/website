@@ -5,12 +5,14 @@ import { isWindowDefined } from "swr/_internal";
 function NightComponent() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [time, setTime] = useState("");
-  const formatter = new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',hour12:true,hour:'numeric',minute:'numeric'})
+  const formatter = new Intl.DateTimeFormat("en-GB", {
+    hour12: true,
+    hour: "numeric",
+    minute: "numeric",
+  });
   useEffect(() => {
     const interval = setInterval(() => {
-      setTime(
-        formatter.format(new Date())
-      );
+      setTime(formatter.format(new Date()));
     }, 1000);
     return () => clearInterval(interval);
   }, []);
@@ -55,7 +57,7 @@ function NightComponent() {
               {time}
             </div>
             <div className="text-white text-sm md:text-lg xl:text-2xl font-thin -mt-2">
-              in the uk
+              in Bali
             </div>
           </div>
         </div>
