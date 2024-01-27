@@ -5,6 +5,7 @@ function DayComponent() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [time, setTime] = useState("");
   const formatter = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Asia/Jakarta",
     hour12: true,
     hour: "numeric",
     minute: "numeric",
